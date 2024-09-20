@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
+	<meta name="robots" content="none" />
+
+	<title>CSS Properties</title>
+
+	<link rel="preload" as="fetch" crossorigin="anonymous" href="https://drafts.csswg.org/indexes/" />
+	<link rel="preload" as="fetch" crossorigin="anonymous" href="/webindex/index/css.json" />
+
+	<script type="module" src="./main.js"></script>
+
+	<style>
+		:root {
+			color-scheme: dark light;
+			font-family: system-ui, sans-serif;
+			overflow-wrap: break-word;
+			-webkit-text-size-adjust: none;
+			text-size-adjust: none;
+			background-color: Canvas;
+		}
+
+		body {
+			margin: 0;
+			box-sizing: border-box;
+			padding: .5rem;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		thead {
+			background-color: #8883;
+		}
+
+		tbody {
+			counter-reset: table-row;
+		}
+
+		tbody > tr {
+			counter-increment: table-row;
+		}
+
+		tr > td {
+			border: 1px solid #8888;
+			padding: .3em .5em;
+			position: relative;
+		}
+
+		tr:nth-of-type(even) {
+			background-color: #8881;
+		}
+
+		tbody > tr > td:last-of-type::after {
+			content: counter(table-row);
+			position: absolute;
+			display: block;
+			inset-inline-end: 0;
+			inset-block: 0;
+			margin-block: auto;
+			translate: 100% 0;
+			padding-inline-start: .5em;
+			block-size: fit-content;
+			color: #888;
+			font-size: .8rem;
+		}
+	</style>
+</head>
+
+<body>
+	<noscript>
+		Please enable JavaScript to view this site.
+		<hr />
+	</noscript>
+
+	<table id="properties">
+		<thead>
+			<tr>
+				<td>In the <a href="https://drafts.csswg.org/indexes/#properties">CSSWG CSS index</a>:</td>
+				<td>In my <a href="/webindex/css.html">Web Index</a>:</td>
+				<td>Your browser supports:</td>
+			</tr>
+		</thead>
+		<tbody>
+			<template>
+				<tr>
+					<td class="specced"></td>
+					<td class="webindex"></td>
+					<td class="browser"></td>
+				</tr>
+			</template>
+		</tbody>
+	</table>
+
+	<button id="copy-non-standard">Copy all non-standard properties</button>
+</body>
+
+</html>
